@@ -12,7 +12,7 @@ build_em () {
     BUILD_DIR=build_em
     echo "BUILD_DIR: $BUILD_DIR"
     emcmake cmake -B $BUILD_DIR -G "Unix Makefiles" -S .
-    cmake --build $BUILD_DIR
+    emmake cmake --build $BUILD_DIR
 }
 
 test() {
