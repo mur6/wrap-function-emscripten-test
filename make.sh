@@ -1,23 +1,32 @@
 #!/bin/bash
 
-BUILD_DIR=build
 
 build() {
+    BUILD_DIR=build
     echo "BUILD_DIR: $BUILD_DIR"
     cmake -B $BUILD_DIR -G "Unix Makefiles" -S .
     cmake --build $BUILD_DIR
 }
 
+build_em () {
+    BUILD_DIR=build_em
+    echo "BUILD_DIR: $BUILD_DIR"
+    emcmake cmake -B $BUILD_DIR -G "Unix Makefiles" -S .
+    cmake --build $BUILD_DIR
+}
+
 test() {
+    BUILD_DIR=build
     echo "BUILD_DIR: $BUILD_DIR"
     cd $BUILD_DIR || exit
     ./main
 }
 
 test_em() {
+    BUILD_DIR=build_em
     echo "BUILD_DIR: $BUILD_DIR"
     cd $BUILD_DIR || exit
-    node modules/ilab-zozomat-sdk-management/ilab-zozomat-sdk-management-test.js
+    node main.js
 }
 
 # exec_main() {
@@ -33,6 +42,9 @@ case $1 in
         ;;
     "build")
         build
+        ;;
+    "build_em")
+        build_em
         ;;
     "test")
         test
