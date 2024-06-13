@@ -26,14 +26,8 @@ test_em() {
     BUILD_DIR=build_em
     echo "BUILD_DIR: $BUILD_DIR"
     cd $BUILD_DIR || exit
-    node main.js
+    node --enable-source-maps main.js
 }
-
-# exec_main() {
-#     BUILD_DIR=build
-#     echo "BUILD_DIR: $BUILD_DIR"
-#     ./${BUILD_DIR}/main
-# }
 
 # switch by the first argument
 case $1 in
