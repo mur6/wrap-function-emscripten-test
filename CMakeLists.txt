@@ -18,7 +18,7 @@ endif()
 
 
 # Add executable
-add_executable(main main.cpp wrap_b.cpp)
+add_executable(main main.cpp wrap_b.cpp wrap_b.hpp)
 #add_link_options("-fuse-ld=lld")
 #add_link_options("-Wl,--wrap=moveme")
-target_link_options(main PRIVATE "LINKER:--wrap=moveme")
+# target_link_options(main PRIVATE "LINKER:--wrap=moveme")

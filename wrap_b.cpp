@@ -1,5 +1,10 @@
 #include<stdio.h>
 
+
+extern "C" {
+
+#include "wrap_b.hpp"
+
 #ifdef WRAP
 void __wrap_moveme(void) {
     puts("wrap_moveme");
@@ -11,4 +16,6 @@ void __wrap_moveme(void) {
 
 void moveme(void) {
     puts("moveme");
+}
+
 }

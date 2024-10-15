@@ -1,7 +1,9 @@
 #include <iostream>
 
 
-void moveme(void);
+extern "C" {
+    #include "wrap_b.hpp"
+}
 
 
 int main()
