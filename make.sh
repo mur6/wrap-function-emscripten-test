@@ -26,7 +26,7 @@ test_em() {
     BUILD_DIR=build_em
     echo "BUILD_DIR: $BUILD_DIR"
     cd $BUILD_DIR || exit
-    node --enable-source-maps main.js
+    node main.js
 }
 
 # switch by the first argument
