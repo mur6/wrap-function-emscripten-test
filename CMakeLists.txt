@@ -16,7 +16,9 @@ if(EMSCRIPTEN)
     add_compile_options(-g)
 endif()
 
+
 # Add executable
-add_executable(main main.cpp)
-add_link_options("-fuse-ld=lld")
-add_link_options("-Wl,--wrap=cv_imread")
+add_executable(main main.cpp wrap_b.cpp)
+#add_link_options("-fuse-ld=lld")
+#add_link_options("-Wl,--wrap=moveme")
+target_link_options(main PRIVATE "LINKER:--wrap=moveme")
