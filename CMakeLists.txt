@@ -4,7 +4,6 @@ project(emscripten-cpp-test)
 include(CMakePrintHelpers)
 cmake_print_variables(EMSCRIPTEN)
 
-
 if(EMSCRIPTEN)
     # set(CMAKE_EXECUTABLE_SUFFIX .js)
     # add_link_options(-l nodefs.js)
@@ -26,10 +25,10 @@ endif()
 
 
 # Add executable
-add_executable(main main.cpp wrap_b.cpp wrap_b.hpp)
+add_executable(main src/main.c src/foo.c)
 # add_link_options("-fuse-ld=lld")
-# add_link_options("-Wl,--wrap=moveme")
+add_link_options("-Wl,--wrap=foo")
 # target_link_options(main PRIVATE "LINKER:-fuse-ld=lld")
 # target_link_options(main PRIVATE "LINKER:--wrap=moveme")
 # target_link_options(main PRIVATE -Wl,--wrap=moveme)
-set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--wrap=moveme")
+# set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--wrap=foo")
