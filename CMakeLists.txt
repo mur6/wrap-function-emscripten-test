@@ -1,8 +1,9 @@
 cmake_minimum_required(VERSION 3.10)
 project(emscripten-cpp-test)
 
-include(CMakePrintHelpers)
-cmake_print_variables(EMSCRIPTEN)
+# set the lang is C++17
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 if(EMSCRIPTEN)
     # set(CMAKE_EXECUTABLE_SUFFIX .js)
@@ -25,10 +26,10 @@ endif()
 
 
 # Add executable
-add_executable(main src/main.c src/foo.c)
+add_executable(main src/cpp/main.cpp src/cpp/foo.cpp)
 # add_link_options("-fuse-ld=lld")
 add_link_options("-Wl,--wrap=foo")
 # target_link_options(main PRIVATE "LINKER:-fuse-ld=lld")
 # target_link_options(main PRIVATE "LINKER:--wrap=moveme")
 # target_link_options(main PRIVATE -Wl,--wrap=moveme)
-# set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--wrap=foo")
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--wrap=foo")

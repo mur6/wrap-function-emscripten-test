@@ -1,8 +1,9 @@
 #include <iostream>
 
-extern int foo();
-extern int __real_foo();
+extern "C" int foo();
+extern "C" int __real_foo();
 
+extern "C"
 int __wrap_foo()
 {
     std::cout << "Func statrt wrap foo." << std::endl;
