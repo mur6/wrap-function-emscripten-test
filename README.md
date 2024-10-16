@@ -5,6 +5,7 @@
 - c++
 - emscripten
 - clang
+- wasm-ld
 - リンカー, GNU ld
 - wrapオプション
 - cmake
