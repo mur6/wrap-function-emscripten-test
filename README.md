@@ -1,6 +1,8 @@
 # wrap function
 
-キーワード:
+c++、clang、emscriptenでリンカーのwrapオプションをテストするサンプルコード.
+
+## キーワード
 
 - c++
 - emscripten
